@@ -26,11 +26,14 @@
 import 'cypress-file-upload';
 import "@percy/cypress";
 import CTLogin from './pageObjects/CTLogin'
-import CTLevelOne from './pageObjects/CTLevelOne';
 import CTAddDivision from './pageObjects/CTAddDivision';
+import CTRightPanel from './pageObjects/CTRightPanel';
+import CTCoursetune from './pageObjects/CTCoursetune';
+
 const ctLogin = new CTLogin()
-const ctLevelOne = new CTLevelOne()
 const ctAddDivision = new CTAddDivision()
+const ctRightPanel = new CTRightPanel()
+const ctCoursetune = new CTCoursetune()
 
 //Logs Into Coursetune
 Cypress.Commands.add("login", (user, password) =>
@@ -43,9 +46,9 @@ Cypress.Commands.add("login", (user, password) =>
 //Creates a New Division
 Cypress.Commands.add("createDivision", (divisionName) =>
     {
-        ctLevelOne.getEditInput().click({ force: true });
-        ctLevelOne.getCreatedDiv().should('be.visible');
-        ctLevelOne.getCreatedDiv().click({ force: true });
+        ctRightPanel.getEditInput().click({ force: true });
+        ctCoursetune.getAddBtn().should('be.visible');
+        ctCoursetune.getAddBtn().click({ force: true });
         ctAddDivision.getDivName().should('be.visible');
         ctAddDivision.getDivName().type(divisionName)
         ctAddDivision.getBannerOne().click({ force: true });
