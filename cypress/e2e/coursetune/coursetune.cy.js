@@ -26,11 +26,11 @@ describe('Coursetune POC', function (params) {
         ctLogin.getSuccessLogin().should('have.text', this.data.users.userName);
     })
 
-    it('And the user creates a new division', function () {
+    it('When the user creates a new division', function () {
         cy.createDivision(divisionName);
     })
 
-    it('Then the division is created', function () {
+    it('Then the division is added', function () {
         cy.contains(divisionName)
     })
 })
