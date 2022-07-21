@@ -2,7 +2,8 @@
 import { faker } from '@faker-js/faker';
 import CTLogin from '../../support/pageObjects/CTLogin'
 const ctLogin = new CTLogin()
-const divisionName = faker.company.companyName();
+const divisionName = faker.name.findName();
+const programName = faker.name.findName();
 
 describe('Coursetune POC', function (params) {
     beforeEach(function () {
@@ -31,6 +32,21 @@ describe('Coursetune POC', function (params) {
     })
 
     it('Then the division is added', function () {
-        cy.contains(divisionName)
+        cy.contains(divisionName);
+    })
+
+    it('When the users clicks the Division Magnifying Glass icon', function () {
+        cy.enterDivision(divisionName);
+    })
+    it('When the user creates a new program', function () {
+        cy.createProgram(programName);
+    })
+
+    it('Then the Program is added', function () {
+        cy.contains(programName);
+    })
+
+    it('When the users clicks the Program Magnifying Glass icon', function () {
+        cy.enterProgram(programName);
     })
 })

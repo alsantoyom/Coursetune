@@ -2,17 +2,17 @@ class CTAddDivision
 {
     //Add Division
     //Name field
-    getDivName()
+    getDivNameInput()
     {
         return cy.xpath('//*[@id="appcontent"]//span/span/span/span[2]/span/span[1]/span/span/span[1]/span/span/span/span[2]/span/span[2]/span/span/span[1]/span/span[2]/span/span/span/span/span[2]/span/input')
     }
     //Default type for the C-Layer
-    getCloValue()
+    getCloValueBtn()
     {
         return cy.xpath('//*[@id="appcontent"]//span/span/span/span[6]/span/span/span/span[2]/span/span/span/span/span[1]/span[1]/span/span/span/span[2]/span/span[1]/span/span/span[3]/span/span[3]/span/span[2]/button')
     }
     //Default type for the Bundle
-    getBundleValue()
+    getBundleValueBtn()
     {
         return cy.xpath('//*[@id="appcontent"]//span/span/span[5]/span/span[3]/span/span[2]/button')
     }
@@ -38,17 +38,17 @@ class CTAddDivision
         return cy.xpath('//*[@id="appcontent"]//span[8]/span/span/span/span[2]/span/span/span/button')
     }
     //First Banner Icon
-    getBannerOne()
+    getBannerOneBtn()
     {
         return cy.xpath('//*[@id="appcontent"]//span[3]/span/span/span[2]/span/span/span/span/span[1]/span[1]/span/span/span/span/span[1]/button')
     }
     //Second Banner Icon
-    getBannerTwo()
+    getBannerTwoBtn()
     {
         return cy.xpath('//*[@id="appcontent"]//span/span[2]/span/span/span/span/span[1]/span[1]/span/span/span/span/span[2]/button')
     }
     //Third Banner Icon
-    getBannerThree()
+    getBannerThreeBtn()
     {
         return cy.xpath('//*[@id="appcontent"]//span/span[2]/span/span/span/span/span[1]/span[1]/span/span/span/span/span[3]/button')
     }
