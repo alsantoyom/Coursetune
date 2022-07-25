@@ -9,12 +9,12 @@ let divisionName, programName, courseName, bundleName1, bundleName2, bundleName3
 describe('Coursetune POC', function (params) {
     beforeEach(function () {
         //Will get user data from data.json before each test
-        cy.fixture('qaData.json').then(function (data) {
+        cy.fixture('devData.json').then(function (data) {
             this.data=data
         })
     })
     it('Given the user is on the Home Page', function () {
-        cy.visit(Cypress.env('qaBaseUrl')+"?htmlrender=1")
+        cy.visit(Cypress.env('devBaseUrl')+"?htmlrender=1")
     })
 
     it('When the user logs in', function () {
