@@ -2,47 +2,47 @@ class CTLeftPanel
 {
     //Coursetune Left Panel
     //Level 1 - Institution
-    getInstBtn()
+    getLpInstBtn()
     {
         return cy.xpath('//*[@id="appcontent"]//span/span[3]/span/span/span[2]/span/span/span/span/span[1]/span[1]/span/span/span/span[2]/span/span/span/span/span[1]/button')
     }
     //Level 2 - Division
-    getDivisionBtn()
+    getLpDivisionBtn()
     {
         return cy.xpath('//*[@id="appcontent"]//span/span/span[3]/span/span/span/span[3]/span/span/span[2]/span/span/span/span/span[1]/span[1]/span/span/span/span[3]/span/span/span/span[1]/button')
     }
     //Level 3 - Program
-    getProgramBtn()
+    getLpProgramBtn()
     {
         return cy.xpath('//*[@id="appcontent"]//span/span[1]/span[1]/span/span/span/span[4]/span/span/span/span[1]/button')
     }
     //Level 4 - Course
-    getCourseBtn()
+    getLpCourseBtn()
     {
         return cy.xpath('//*[@id="appcontent"]//span/span/span/span[1]/span[1]/span/span/span/span[5]/span/span/span/span[1]/button')
     }
     //Circle Graph View
-    getCircGraphBtn()
+    getLpCircGraphBtn()
     {
         return cy.xpath('//*[@id="appcontent"]//span[2]/span/span/span[4]/span/span/span/span[2]/span/span/span/span/span/span/span/span[1]/span[1]/span/button')
     }
     //Grid View
-    getGridBtn()
+    getLpGridBtn()
     {
         return cy.xpath('//*[@id="appcontent"]//span/span/span[4]/span/span/span/span[2]/span/span/span/span/span/span/span/span[1]/span[2]/span/button')
     }
     //Linear View
-    getLinearBtn()
+    getLpLinearBtn()
     {
         return cy.xpath('//*[@id="appcontent"]//span/span/span[2]/span/span/span[4]/span/span/span/span[2]/span/span/span/span/span/span/span/span[1]/span[3]/span/button')
     }
     //Bundle Layer
-    getBundlLayBtn()
+    getLpBundlLayBtn()
     {
         return cy.xpath('//*[@id="appcontent"]//span/span/span[4]/span/span/span/span[3]/span/span/span[3]/span/span/span/span[1]/button')
     }
     //CLO Layer
-    getCloLayBtn()
+    getLpCloLayBtn()
     {
         return cy.xpath('//*[@id="appcontent"]//span/span/span[2]/span/span/span/span[1]/button')
     }

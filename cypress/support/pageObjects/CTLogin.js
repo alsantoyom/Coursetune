@@ -2,12 +2,12 @@ class CTLogin
 {
     //Login Screen
     //Username field
-    getUsrInput()
+    getLoginUsrInput()
     {
         return cy.xpath("//*[contains(@class, 'login-container')]//*[contains(@class, 'email-container')]//input")
     }
     //Password field
-    getPassInput()
+    getLoginPassInput()
     {
         return cy.xpath("//*[contains(@class, 'login-container')]//*[contains(@class, 'password-container')]//input")
     }

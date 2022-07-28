@@ -2,27 +2,27 @@ class CTDivision
 {
     //Level 2 - Division
     //Program Card
-    getCardProgramBtn()
+    getProgramCardBtn()
     {
         return cy.xpath('//*[@id="appcontent"]//span[3]/span/span/span/span/span/span/span/span[2]/span/span/span/span/span[1]/span[1]/span/span/span/span/span/span/button')
     }
     //Magnifying Glass In
-    getMagProgramBtn()
+    getProgramMagBtn()
     {
         return cy.xpath('//*[@id="appcontent"]//span[2]/span/span/span/span/span[1]/span/span/button')
     }
     //Magnifying Glass Out
-    getMagoutProgramBtn()
+    getProgramMagoutBtn()
     {
         return cy.xpath('//*[@id="appcontent"]//span[2]/span/span/span/span/span[1]/span/span/button')
     }
     //Edit Pencil
-    getEditProgramBtn()
+    getProgramEditBtn()
     {
         return cy.xpath('//*[@id="appcontent"]//span[2]/span[2]/span/span/span/span/span[3]/span/span/span/button')
     }
     //Delete Trash Can
-    getDelProgramBtn()
+    getProgramDelBtn()
     {
         return cy.xpath('//*[@id="appcontent"]//span/span/span/span/span[4]/span/span/span/button')
     }
