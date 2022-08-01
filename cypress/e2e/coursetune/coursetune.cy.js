@@ -4,7 +4,7 @@ import CTLogin from '../../support/pageObjects/CTLogin'
 const ctLogin = new CTLogin();
 let divisionName, programName, courseName, bundleName1, bundleName2, bundleName3;
 
-describe('Coursetune POC', function (params) {
+describe('Coursetune POC', function () {
      after(function() {
         cy.deleteProgram();
         cy.deleteDivision();

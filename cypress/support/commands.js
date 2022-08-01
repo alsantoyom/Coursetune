@@ -62,7 +62,7 @@ Cypress.Commands.add("login", (user, password) =>
 })
 
 //Sign Out Coursetune
-Cypress.Commands.add("logout", (userName) =>
+Cypress.Commands.add("logout", () =>
 {
     ctCoursetune.getGeneralUsrProfileBtn().click({ force: true });
     ctCoursetune.getGeneralSignOutBtn().should('be.visible');
