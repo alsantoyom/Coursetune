@@ -5,6 +5,11 @@ const ctLogin = new CTLogin();
 let divisionName, programName, courseName, bundleName1, bundleName2, bundleName3;
 
 describe('Coursetune POC', function (params) {
+     after(function() {
+        cy.deleteProgram();
+        cy.deleteDivision();
+        cy.logout();
+        })
     beforeEach(function () {
         //Will get user data from data.json before each test
         cy.fixture('qaData.json').then(function (data) {
@@ -12,33 +17,27 @@ describe('Coursetune POC', function (params) {
         })
     })
     it('Will Create a division, with one program, one course, 3 bundles and 3 LOs per Bundle', function () {
-        cy.log('The user launches Coursetune')
+        //The user launches Coursetune
         cy.visit(Cypress.env('qaBaseUrl')+"?htmlrender=1")
-        cy.log('The user logs in')
+        //The user logs in
         cy.login(this.data.users.userEmail, this.data.users.password)
         ctLogin.getSuccessLogin().should('have.text', this.data.users.userName);
-        cy.log('The user creates a new division')
+        //The user creates a new division
         divisionName = faker.random.word();
         cy.createDivision(divisionName);
-        cy.log('The division is added')
-        cy.contains(divisionName);
-        cy.log('The user enters the Division')
+        //The user enters the Division
         cy.enterDivision(divisionName);
-        cy.log('The user creates a new program')
+        //The user creates a new program
         programName = faker.random.word();
         cy.createProgram(programName);
-        cy.log('The Program is added')
-        cy.contains(programName);
-        cy.log('The user enters the Program')
+        //The user enters the Program
         cy.enterProgram(programName);
-        cy.log('The user creates a new Course')
+        //The user creates a new Course
         courseName = faker.random.word();
         cy.createCourse(courseName);
-        cy.log('The Course is added')
-        cy.contains(courseName);
-        cy.log('The user enters the Course')
+        //The user enters the Course
         cy.enterCourse(courseName);
-        cy.log('The user creates 3 Bundles')
+        //The user creates 3 Bundles
         //Bundle 1
         bundleName1 = faker.random.word();
         cy.createBundle(bundleName1);
@@ -48,7 +47,7 @@ describe('Coursetune POC', function (params) {
         //Bundle 3
         bundleName3 = faker.random.word();
         cy.createBundle(bundleName3);
-        cy.log('The user creates 3 LOs per Bundle')
+        //The user creates 3 LOs per Bundle
         //Bundle 1 - LO 1
         const b1lo1 = faker.random.word();
         cy.contains(bundleName1).click({ force: true });
@@ -79,6 +78,5 @@ describe('Coursetune POC', function (params) {
         //Bundle 3 - LO 3
         const b3lo3 = faker.random.word();
         cy.createLo(b3lo3);
-
     })
 })

@@ -61,6 +61,14 @@ Cypress.Commands.add("login", (user, password) =>
     ctLogin.getLoginBtn().click({ force: true });
 })
 
+//Sign Out Coursetune
+Cypress.Commands.add("logout", (userName) =>
+{
+    ctCoursetune.getGeneralUsrProfileBtn().click({ force: true });
+    ctCoursetune.getGeneralSignOutBtn().should('be.visible');
+    ctCoursetune.getGeneralSignOutBtn().click({ force: true });
+})
+
 //Creates a New Division
 Cypress.Commands.add("createDivision", (divisionName) =>
 {
@@ -78,10 +86,10 @@ Cypress.Commands.add("createDivision", (divisionName) =>
 //Enters a Division
 Cypress.Commands.add("enterDivision", (divisionName) =>
 {
-    cy.contains(divisionName).click()
+    cy.contains(divisionName).click({ force: true });
     ctInstitution.getDivMagBtn().should('be.visible');
     ctInstitution.getDivMagBtn().click({ force: true });
-    //ctLeftPanel.getLpProgramBtn().should('be.visible');
+    ctLeftPanel.getLpDivisionBtn().should('be.visible');
 })
 
 //Creates a New Program
@@ -98,10 +106,10 @@ Cypress.Commands.add("createProgram", (programName) =>
 //Enters a Program
 Cypress.Commands.add("enterProgram", (programName) =>
 {
-    cy.contains(programName).click()
+    cy.contains(programName).click({ force: true });
     ctDivision.getProgramMagBtn().should('be.visible');
     ctDivision.getProgramMagBtn().click({ force: true });
-    //ctLeftPanel.getLpProgramBtn().should('be.visible');
+    ctLeftPanel.getLpProgramBtn().should('be.visible');
 })
 
 //Creates a New Course
@@ -123,7 +131,7 @@ Cypress.Commands.add("enterCourse", (courseName) =>
     cy.contains(courseName);
     ctProgram.getCourseMagBtn().should('be.visible');
     ctProgram.getCourseMagBtn().click({ force: true });
-    //ctLeftPanel.getLpCourseBtn().should('be.visible');
+    ctLeftPanel.getLpCourseBtn().should('be.visible');
 })
 
 //Creates a New Bundle
@@ -145,3 +153,39 @@ Cypress.Commands.add("createLo", (LearningObjective) =>
     ctAddLo.getLoTxtArea().type(LearningObjective)
     ctAddLo.getLoAddBtn().click({ force: true });
 })
+
+//Deletes a Division 
+Cypress.Commands.add("deleteDivision", () =>
+{
+    ctLeftPanel.getLpInstBtn().click({ force: true });
+    ctLeftPanel.getLpCourseBtn().should('not.exist');
+    cy.wait(500)
+    ctInstitution.getDivDelBtn().click({ force: true });
+    ctInstitution.getDivDelCheckBtn().should('be.visible');
+    ctInstitution.getDivDelCheckBtn().click({ force: true });
+    ctInstitution.getDivDelDivisionBtn().click({ force: true });
+    ctInstitution.getDivDelDivisionBtn().click({ force: true });
+    ctInstitution.getDivWarnOkBtn().click({ force: true });
+    ctInstitution.getDivWarnOkBtn().should('not.exist');
+    cy.wait(500)
+})
+
+//Deletes a Program
+Cypress.Commands.add("deleteProgram", () =>
+{
+    ctLeftPanel.getLpDivisionBtn().click({ force: true });
+    ctLeftPanel.getLpCourseBtn().should('not.exist');
+    cy.wait(500)
+    ctDivision.getProgramDelBtn().click({ force: true });
+    ctDivision.getProgramDelCheckBtn().should('be.visible');
+    ctDivision.getProgramDelCheckBtn().click({ force: true });
+    ctDivision.getProgramDelProgramBtn().click({ force: true });
+    ctDivision.getProgramDelProgramBtn().click({ force: true });
+    ctDivision.getProgramWarnOkBtn().click({ force: true });
+    ctDivision.getProgramWarnOkBtn().should('not.exist');
+    cy.wait(500)
+})
+
+
+
+

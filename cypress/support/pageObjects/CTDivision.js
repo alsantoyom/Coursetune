@@ -26,7 +26,20 @@ class CTDivision
     {
         return cy.xpath('//*[@id="appcontent"]//span/span/span/span/span[4]/span/span/span/button')
     }
+    //Delete Checkbox
+    getProgramDelCheckBtn()
+    {
+        return cy.xpath('//*[@id="appcontent"]//span[2]/span/span/span/span/span/span/span/span/span/span/span/span/span/span[2]/span/span/span/span/span/span[6]/span/span/span/span[2]/span/span/span/span/span[1]/span[1]/span/span/span/span/button')
+    }
+    //Delete Program button
+    getProgramDelProgramBtn()
+    {
+        return cy.xpath('//*[@id="appcontent"]//span/span[2]/span/span/span/span/span/span/span/span/span/span/span/span/span/span[2]/span/span/span/span/span/span[8]/span/span/span/span[2]/span/span/span/button')
+    }
+    //Warning Ok button
+    getProgramWarnOkBtn()
+    {
+        return cy.xpath('//*[@id="appcontent"]//span/span/span/span/span/span/span[2]/span/span/span/span/span/span[8]/span/span/span/span[3]/span/span/span/button')
+    }
 }
-
 export default CTDivision;
-

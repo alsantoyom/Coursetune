@@ -11,6 +11,11 @@ class CTRightPanel
     {
         return cy.xpath('//*[@id="appcontent"]//span/span[2]/button/span/span/span/span[2]')
     }
+    //Tasks
+    getRpTasksBtn()
+    {
+        return cy.xpath('//*[@id="appcontent"]//span/span/span/span[2]/span/button')
+    }
 }
 
 export default CTRightPanel;
