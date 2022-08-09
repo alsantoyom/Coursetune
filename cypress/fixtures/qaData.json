@@ -1,9 +1,41 @@
 {
-    "users":
-    {
-      "userEmail": "alfredo+automation@coursetune.com",
-      "userName": "Alfredo",
-      "password": "Automation123!"
+  "users": {
+   "admin": {
+    "email": "alfredo+automation@coursetune.com",
+    "name": "Alfredo",
+    "lastName": "Automation",
+    "password": "Automation123!"
+   },
+   "manager": {
+    "email": "manager+automation@coursetune.com",
+    "name": "Manager",
+    "lastName": "Automation",
+    "password": "Automation123!"
+   },
+   "editor": {
+    "email": "editor+automation@coursetune.com",
+    "name": "Editor",
+    "lastName": "Automation",
+    "password": "Automation123!"
+   },
+   "viewer": {
+    "email": "viewer+automation@coursetune.com",
+    "name": "Viewer",
+    "lastName": "Automation",
+    "password": "Automation123!"
+   },
+   "commenter": {
+    "email": "commenter+automation@coursetune.com",
+    "name": "Commenter",
+    "lastName": "Automation",
+    "password": "Automation123!"
+   }
+  },
+  "roles": {
+     "manager": "manager",
+     "editor": "editor",
+     "commenter": "commenter",
+     "viewer": "viewer",
+     "none": "none"
     }
-
 }

@@ -6,8 +6,8 @@ let divisionName, programName, courseName, bundleName1, bundleName2, bundleName3
 
 describe('Coursetune POC', function () {
      after(function() {
-        cy.deleteProgram();
-        cy.deleteDivision();
+        cy.deleteProgram(programName);
+        cy.deleteDivision(divisionName);
         cy.logout();
         })
     beforeEach(function () {
@@ -20,8 +20,9 @@ describe('Coursetune POC', function () {
         //The user launches Coursetune
         cy.visit(Cypress.env('qaBaseUrl')+"?htmlrender=1")
         //The user logs in
-        cy.login(this.data.users.userEmail, this.data.users.password)
-        ctLogin.getSuccessLogin().should('have.text', this.data.users.userName);
+        cy.login(this.data.users.admin.email, this.data.users.admin.password)
+        ctLogin.getSuccessLogin()
+        .should('have.text', this.data.users.admin.name);
         //The user creates a new division
         divisionName = faker.random.word();
         cy.createDivision(divisionName);
@@ -50,33 +51,30 @@ describe('Coursetune POC', function () {
         //The user creates 3 LOs per Bundle
         //Bundle 1 - LO 1
         const b1lo1 = faker.random.word();
-        cy.contains(bundleName1).click({ force: true });
-        cy.createLo(b1lo1);
+        cy.createLo(bundleName1, b1lo1);
         //Bundle 1 - LO 2
         const b1lo2 = faker.random.word();
-        cy.createLo(b1lo2);
+        cy.createLo(bundleName1, b1lo2);
         //Bundle 1 - LO 3
         const b1lo3 = faker.random.word();
-        cy.createLo(b1lo3);
+        cy.createLo(bundleName1, b1lo3);
         //Bundle 2 - LO 1
         const b2lo1 = faker.random.word();
-        cy.contains(bundleName2).click({ force: true });
-        cy.createLo(b2lo1);
+        cy.createLo(bundleName2, b2lo1);
         //Bundle 2 - LO 2
         const b2lo2 = faker.random.word();
-        cy.createLo(b2lo2);
+        cy.createLo(bundleName2, b2lo2);
         //Bundle 2 - LO 3
         const b2lo3 = faker.random.word();
-        cy.createLo(b2lo3);
+        cy.createLo(bundleName2, b2lo3);
         //Bundle 3 - LO 1
         const b3lo1 = faker.random.word();
-        cy.contains(bundleName3).click({ force: true });
-        cy.createLo(b3lo1);
+        cy.createLo(bundleName3, b3lo1);
         //Bundle 3 - LO 2
         const b3lo2 = faker.random.word();
-        cy.createLo(b3lo2);
+        cy.createLo(bundleName3, b3lo2);
         //Bundle 3 - LO 3
         const b3lo3 = faker.random.word();
-        cy.createLo(b3lo3);
+        cy.createLo(bundleName3, b3lo3);
     })
 })
