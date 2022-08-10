@@ -9,6 +9,7 @@ module.exports = defineConfig({
   env: {
     qaBaseUrl: 'https://qa.coursetune.com/',
     stageBaseUrl: 'https://staging.coursetune.com/',
-    devBaseUrl: 'https://dev.coursetune.com/'
+    devBaseUrl: 'https://dev.coursetune.com/',
+    localBaseUrl: 'http://localhost:8080/'
   },
 });

@@ -37,5 +37,11 @@
      "commenter": "commenter",
      "viewer": "viewer",
      "none": "none"
-    }
+    },
+    "levels": {
+      "level1": "Institution",
+      "level2": "Division",
+      "level3": "Program",
+      "level4": "Course"
+     }
 }

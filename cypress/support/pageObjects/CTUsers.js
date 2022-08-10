@@ -31,10 +31,30 @@ class CTUsers
     {
         return cy.xpath('//*[@id="appcontent"]//span[1]/span/span/span/span/span[1]/span/span[1]/span/span/span/span[2]/span/span/span/span/span[2]/button')
     }
-    //Role Dropdown Value
-    getUsrDropdwnValueBtn()
+    //Manager Role Value
+    getUsrManagerValueBtn()
     {
-        return cy.xpath(`//*[contains(@class, 'select-option')]//*[contains(text(),'manager')]`)
+        return cy.xpath('//*[@id="appcontent"]/div[1]/span/span[1]/span/span/span/span/span[1]/span[2]/span/span/span/span[2]/span[2]/span[2]/span[2]/span/span/span[1]/span/span/span[2]/span/span/span/span/span/span/span[2]/span/span/span/span/span[1]/span[1]/span/span/span/span/span[1]/button')
+    }
+    //Editor Role Value
+    getUsrEditorValueBtn()
+    {
+        return cy.xpath('//*[@id="appcontent"]/div[1]/span/span[1]/span/span/span/span/span[1]/span[2]/span/span/span/span[2]/span[2]/span[2]/span[2]/span/span/span[1]/span/span/span[2]/span/span/span/span/span/span/span[2]/span/span/span/span/span[1]/span[1]/span/span/span/span/span[2]/button')
+    }
+    //Commenter Role Value
+    getUsrCommenterValueBtn()
+    {
+        return cy.xpath('//*[@id="appcontent"]/div[1]/span/span[1]/span/span/span/span/span[1]/span[2]/span/span/span/span[2]/span[2]/span[2]/span[2]/span/span/span[1]/span/span/span[2]/span/span/span/span/span/span/span[2]/span/span/span/span/span[1]/span[1]/span/span/span/span/span[3]/button')
+    }
+    //Viewer Role Value
+    getUsrViewerValueBtn()
+    {
+        return cy.xpath('//*[@id="appcontent"]/div[1]/span/span[1]/span/span/span/span/span[1]/span[2]/span/span/span/span[2]/span[2]/span[2]/span[2]/span/span/span[1]/span/span/span[2]/span/span/span/span/span/span/span[2]/span/span/span/span/span[1]/span[1]/span/span/span/span/span[4]/button')
+    }
+    //None Role Value
+    getUsrNoneValueBtn()
+    {
+        return cy.xpath('//*[@id="appcontent"]/div[1]/span/span[1]/span/span/span/span/span[1]/span[2]/span/span/span/span[2]/span[2]/span[2]/span[2]/span/span/span[1]/span/span/span[2]/span/span/span/span/span/span/span[2]/span/span/span/span/span[1]/span[1]/span/span/span/span/span[5]/button')
     }
     //Add Role Button
     getUsrAddRoleBtn()
@@ -55,6 +75,31 @@ class CTUsers
     getUsrAssignedRoleBtn()
     {
         return cy.xpath('//*[@id="appcontent"]//span/span/span/span/span/span[4]/span/span/span/span[2]/button')
+    }
+    //Existing Manager Role
+    getUsrChangeManagerValueBtn()
+    {
+        return cy.xpath('//*[@id="appcontent"]/div[1]/span/span[1]/span/span/span/span/span[1]/span[2]/span/span/span/span[2]/span[2]/span[2]/span[2]/span/span/span[1]/span/span/span[2]/span/span/span/span/span/span/span[2]/span/span/span/span/span[1]/span[1]/span/span/span/span/span[1]/button')
+    }
+    //Existing Editor Role
+    getUsrChangeEditorValueBtn()
+    {
+        return cy.xpath('//*[@id="appcontent"]/div[1]/span/span[1]/span/span/span/span/span[1]/span[2]/span/span/span/span[2]/span[2]/span[2]/span[2]/span/span/span[1]/span/span/span[2]/span/span/span/span/span/span/span[2]/span/span/span/span/span[1]/span[1]/span/span/span/span/span[2]/button')
+    }
+    //Existing Commenter Role
+    getUsrChangeCommenterValueBtn()
+    {
+        return cy.xpath('//*[@id="appcontent"]/div[1]/span/span[1]/span/span/span/span/span[1]/span[2]/span/span/span/span[2]/span[2]/span[2]/span[2]/span/span/span[1]/span/span/span[2]/span/span/span/span/span/span/span[2]/span/span/span/span/span[1]/span[1]/span/span/span/span/span[3]/button')
+    }
+    //Existing Viewer Role
+    getUsrChangeViewerValueBtn()
+    {
+        return cy.xpath('//*[@id="appcontent"]/div[1]/span/span[1]/span/span/span/span/span[1]/span[2]/span/span/span/span[2]/span[2]/span[2]/span[2]/span/span/span[1]/span/span/span[2]/span/span/span/span/span/span/span[2]/span/span/span/span/span[1]/span[1]/span/span/span/span/span[4]/button')
+    }
+    //Existing None Role
+    getUsrChangeNoneValueBtn()
+    {
+        return cy.xpath('//*[@id="appcontent"]/div[1]/span/span[1]/span/span/span/span/span[1]/span[2]/span/span/span/span[2]/span[2]/span[2]/span[2]/span/span/span[1]/span/span/span[2]/span/span/span/span/span/span/span[2]/span/span/span/span/span[1]/span[1]/span/span/span/span/span[5]/button')
     }
     //Close Users Screen
     getUsrCloseBtn()

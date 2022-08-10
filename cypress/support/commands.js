@@ -57,24 +57,13 @@ const ctAddLo = new CTAddLo();
 const ctCourse = new CTCourse();
 const ctUsers = new CTUsers();
 
-// //Clicks an Element
-// Cypress.Commands.add("click", () =>
-// {
-//     cy.click()
-// })
-
-// //Types into Element
-// Cypress.Commands.add("type", (text) =>
-// {
-//     cy.type(text, { delay: 100 });
-// })
-
 //Logs Into Coursetune
-Cypress.Commands.add("login", (user, password) =>
+Cypress.Commands.add("login", (user, password, userName) =>
 {
     ctLogin.getLoginUsrInput().type(user, { delay: 100 });
     ctLogin.getLoginPassInput().type(password, { delay: 100 });
     ctLogin.getLoginBtn().click({ force: true });
+    ctLogin.getSuccessLogin().should('have.text', userName);
 })
 
 //Sign Out Coursetune
@@ -88,6 +77,7 @@ Cypress.Commands.add("logout", () =>
 //Creates a New Division
 Cypress.Commands.add("createDivision", (divisionName) =>
 {
+    ctLeftPanel.getLpInstBtn().should('exist');
     ctRightPanel.getRpEditInput().click({ force: true });
     ctCoursetune.getCtAddBtn().should('be.visible');
     ctCoursetune.getCtAddBtn().click({ force: true });
@@ -97,26 +87,30 @@ Cypress.Commands.add("createDivision", (divisionName) =>
     ctAddDivision.getDivBannerTwoBtn().click({ force: true });
     ctAddDivision.getDivBannerThreeBtn().click({ force: true });
     ctAddDivision.getDivAddBtn().click({ force: true });
+    cy.contains(divisionName);
 })
 
 //Enters a Division
-Cypress.Commands.add("enterDivision", (divisionName) =>
+Cypress.Commands.add("enterDivision", (divisionName, level) =>
 {
     cy.contains(divisionName).click({ force: true });
     ctInstitution.getDivMagBtn().should('be.visible');
     ctInstitution.getDivMagBtn().click({ force: true });
     ctLeftPanel.getLpDivisionBtn().should('be.visible');
+    cy.contains(`${level}s in ${divisionName}`)
 })
 
 //Creates a New Program
 Cypress.Commands.add("createProgram", (programName) =>
 {
+    ctLeftPanel.getLpDivisionBtn().should('exist');
     ctRightPanel.getRpEditInput().click({ force: true });
-    ctCoursetune.getCtAddBtn().should('be.visible');
-    ctCoursetune.getCtAddBtn().click({ force: true });
-    ctAddProgram.getProgramNameInput().should('be.visible');
-    ctAddProgram.getProgramNameInput().type(programName, { delay: 100 })
+    ctCoursetune.getCtAddBtn().should('be.visible')
+    .click({ force: true });
+    ctAddProgram.getProgramNameInput().should('be.exist')
+    .type(programName, { delay: 100 })
     ctAddProgram.getProgramSaveBtn().click({ force: true });
+    cy.contains(programName);
 })
 
 //Edits a Program
@@ -131,17 +125,19 @@ Cypress.Commands.add("createProgram", (programName) =>
 })
 
 //Enters a Program
-Cypress.Commands.add("enterProgram", (programName) =>
+Cypress.Commands.add("enterProgram", (programName, level) =>
 {
     cy.contains(programName).click({ force: true });
     ctDivision.getProgramMagBtn().should('be.visible');
     ctDivision.getProgramMagBtn().click({ force: true });
     ctLeftPanel.getLpProgramBtn().should('be.visible');
+    cy.contains(`${level}s in ${programName}`)
 })
 
 //Creates a New Course
 Cypress.Commands.add("createCourse", (courseName) =>
 {
+    ctLeftPanel.getLpProgramBtn().should('exist');
     ctRightPanel.getRpEditInput().click({ force: true });
     ctCoursetune.getCtAddBtn().should('be.visible');
     ctCoursetune.getCtAddBtn().click({ force: true });
@@ -150,6 +146,7 @@ Cypress.Commands.add("createCourse", (courseName) =>
     ctAddCourse.getCourseAddBtn().click({ force: true });
     ctAddCourse.getCourseWarnSaveBtn().should('be.visible');
     ctAddCourse.getCourseWarnSaveBtn().click({ force: true });
+    cy.contains(courseName);
 })
 
 //Enters a Course
@@ -164,6 +161,7 @@ Cypress.Commands.add("enterCourse", (courseName) =>
 //Creates a New Bundle
 Cypress.Commands.add("createBundle", (bundleName) =>
 {
+    ctLeftPanel.getLpCourseBtn().should('exist');
     ctCoursetune.getCtAddBtn().should('be.visible');
     ctCoursetune.getCtAddBtn().click({ force: true });
     ctAddBundle.getBundleNameInput().should('be.visible');
@@ -223,39 +221,3 @@ Cypress.Commands.add("deleteProgram", (programName) =>
     ctDivision.getProgramWarnOkBtn().should('not.exist');
     cy.wait(500)
 })
-
-//Estoy teniendo problemas al momento de seleccionar el dropdown value
-//Assign Manager Role
-    Cypress.Commands.add("assignManagerRole", (user, email, levelObject, role) =>
-    {
-        ctCoursetune.getCtMenuBtn().click({ force: true });
-        ctCoursetune.getCtUsersBtn().should('be.visible')
-        .click({ force: true });
-        ctUsers.getUsrSearchInput().type(user, { delay: 100 });
-        cy.contains(email);
-        ctUsers.getUsrMenuBtn().click({ force: true });
-        ctUsers.getUsrAssignViewRoleBtn().should('be.visible')
-        .click({ force: true });
-        ctUsers.getUsrAssignRoleBtn().should('be.visible')
-        .click({ force: true });
-        ctUsers.getUsrSearchRoleInput().should('be.visible')
-        .type(`${levelObject}{enter}`, { delay: 100 })
-        ctUsers.getUsrDropdwnRoleBtn().should('be.visible')
-        .type(role, { delay: 100 })
-        ctUsers.getUsrDropdwnValueBtn().click({ force: true });
-        ctUsers.getUsrAddRoleBtn().click({ force: true });
-        ctUsers.getUsrAssignedRoleBtn().should('have.text', role)
-        ctUsers.getUsrSaveRoleBtn().click({ force: true })
-        .should('not.be.visible')
-        ctUsers.getUsrCloseBtn().click({ force: true })
-    })
-
-
-
-//Assign Commenter Role
-//Assign Viewer Role
-//Assign Editor Role
-//Assign None Role
-
-
-
